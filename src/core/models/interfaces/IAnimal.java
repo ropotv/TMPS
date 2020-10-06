@@ -9,5 +9,7 @@ public interface IAnimal {
     public void SetColor(String color);
     public void SetAge(int age);
 
+    public IAnimal Clone();
+
     public void Pitch();
 }

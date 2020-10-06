@@ -26,4 +26,13 @@ public class Animal implements IAnimal {
     public void Pitch() {
         System.out.println("I am a " + this.name + " and my color is " + this.color + " because I am " + this.age + " years old.");
     }
+
+    public IAnimal Clone() {
+        IAnimal animal = new Animal();
+        animal.SetName(this.name);
+        animal.SetAge(this.age);
+        animal.SetColor(this.color);
+
+        return animal;
+    }
 }
