@@ -13,6 +13,6 @@ public class Main {
         user.weight = 85;
 
         double weightInKg = new WeightAdapter(user.weight).From(user.metric).To(MetricEnum.Kilograms);
-        System.out.println(weightInKg);
+        System.out.println("User weight in kilograms is " + weightInKg);
     }
 }
