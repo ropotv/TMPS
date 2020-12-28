@@ -1,9 +1,11 @@
 package app;
 
+import core.adapters.WeightAdapter;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-        System.out.println("Hello world");
+        double weightInPounds = new WeightAdapter().FromKg(85).ToLbs();
+        System.out.println(weightInPounds);
     }
 }
