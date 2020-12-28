@@ -2,7 +2,7 @@ package app.components.texteditor;
 
 import java.util.ArrayList;
 
-public class Caretaker {
+public class Logger {
     private final ArrayList<Memento> mementos = new ArrayList<>();
 
     public void addMemento(Memento m) {
