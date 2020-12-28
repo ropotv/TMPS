@@ -1,35 +1,31 @@
 package core.adapters;
 
+import core.types.MetricEnum;
+
 public class WeightAdapter {
-    public String from;
-    public String to;
+    public MetricEnum from;
     public double value = 0;
 
-
-    public WeightAdapter FromKg(double value) {
-        this.from = "kg";
+    public WeightAdapter(double value) {
         this.value = value;
+    }
+
+    public WeightAdapter From(MetricEnum metric) {
+        this.from = metric;
         return this;
     }
 
-    public WeightAdapter FromLbs(double value) {
-        this.from = "lbs";
-        this.value = value;
-        return this;
-    }
-
-    public double ToKg() {
-        if (this.from.equals("kg")) {
-            return this.value;
-        }
-        return this.value / 2.205;
-    }
-
-    public double ToLbs() {
-        if (this.from.equals("lbs")) {
-            return this.value;
-        }
-        return this.value * 2.205;
+    public double To(MetricEnum metric) {
+        return switch (this.from) {
+            case Kilograms -> switch (metric) {
+                case Kilograms -> this.value;
+                case Pounds -> this.value * 2.205;
+            };
+            case Pounds -> switch (metric) {
+                case Kilograms -> this.value / 2.205;
+                case Pounds -> this.value;
+            };
+        };
     }
 
 }
